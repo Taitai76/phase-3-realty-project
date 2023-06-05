@@ -27,7 +27,9 @@ class ApplicationController < Sinatra::Base
   patch '/listings/:id' do
     listing = Listing.find(params[:id])
     listing.update(
-      price: params[:price]
+      asking_price: params[:asking_price],
+      address: params[:address],
+      sqft: params[:sqft],
     )
     listing.to_json
   end
